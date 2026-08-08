@@ -29,8 +29,8 @@ export const profile = {
 
   // Hero typing animation — cycles through these phrases
   typingPhrases: [
-    "Hi! I'm Fareehah.",
-    "Open to work!",
+
+    "Open to work!", 
     "Eager to learn new things and easy to adapt.",
     "I'm ready to be on board.",
   ],
@@ -115,6 +115,15 @@ export const experiences = [
     duration: "2024",
     description: "Volunteered for SUKMA Games XXI 2024 providing onsite ICT support at the shooting range venue. Delivered hardware setup, system monitoring, troubleshooting, and issue reporting over an 8-day event to ensure smooth venue operations.",
     skills: ["IT Support", "Hardware Setup", "Troubleshooting", "System Monitoring"],
+    media: [],
+  },
+  {
+    logo: "",
+    org: "AFD Facilities Resources",
+    position: "Data Collector ",
+    duration: "2024",
+    description: "Recorded and categorized over 2 buildings with defects by severity as part of a 12-member team under the supervision of AFD Facilities Resources (Malaysia) engineers, contributing to structured building audit UITM2 reporting.",
+    skills: ["Data Collection ", "Attention to Detail & Defect Identification", "Teamwork & Collaboration"],
     media: [],
   },
 ];
