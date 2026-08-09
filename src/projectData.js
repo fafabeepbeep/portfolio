@@ -134,10 +134,10 @@ export const experiences = [
 // -----------------------------------------------------------------------------
 export const awards = [
   {
-    title: "🥈 2nd Runner Up - AI Healthcare Hackathon",
+    title: "🥈 1st Runner Up - AI Healthcare Hackathon",
     org: "MentorMates at Sheraton Kuching",
     date: "2026",
-    description: "Placed 2nd runner up at the AI Healthcare Hackathon, competing against teams to build innovative healthcare solutions using AI.",
+    description: "Placed 1st runner up at the AI Healthcare Hackathon, competing against teams to build innovative healthcare solutions using AI.",
     image: "../awards/hackathon.jpg",
     media: ["../awards/hackathononstage.jpg"],
   },
