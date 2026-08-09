@@ -166,7 +166,7 @@ export const awards = [
 // -----------------------------------------------------------------------------
 export const certificates = [
   {
-    name: "2nd Runner Up - Healthcare AI Hackathon",
+    name: "1st Runner Up - Healthcare AI Hackathon",
     issuer: "MentorMates",
     date: "2026",
     credentialId: "",
