@@ -234,7 +234,7 @@ The project followed Rapid Application Development (RAD) methodology across four
     technologies: ["Python", "OpenCV", "MediaPipe", "HTML", "JavaScript", "Node.js", "WebSocket", "MySQL", "Aiven", "Phaser.js", "Google Colab"],
     role: "Fullstack Developer & Researcher",
     highlights: [
-      "Trained custom ML model with 1,400+ hand gesture images achieving 90% accuracy",
+      "Trained custom ML model on TensorFlow with 1,400+ hand gesture images achieving 90% accuracy",
       "Real-time gesture relay from local Python script to deployed browser game via WebSocket",
       "User study with 31 participants to determine most intuitive gestures",
       "Deployed on Render — accessible from any browser",
@@ -261,7 +261,7 @@ The project followed Rapid Application Development (RAD) methodology across four
     documentation: "../project1/82822_Thesis.pdf",
     architecture: "Python script captures webcam frames → OpenCV processes → MediaPipe detects hand landmarks → custom Model Maker classifier maps gesture → WebSocket sends command to Node.js server → Phaser.js game receives and reacts. MySQL on Aiven stores user accounts and leaderboard scores.",
     challenges: "Achieving reliable gesture recognition under varying lighting conditions while maintaining low enough latency for real-time gameplay.",
-    solutions: "Trained a custom MediaPipe Model Maker classifier with 1,400+ images across 7 gesture classes, optimised the processing pipeline, and used WebSockets for minimum-latency command relay.",
+    solutions: "Trained a custom MediaPipe Model Maker classifier with Tensorflow lite on Google Colab with 1,400+ images across 7 gesture classes, optimised the processing pipeline, and used WebSockets for minimum-latency command relay.",
     lessons: "The importance of a user study before implementation — gathering real data from 31 participants shaped the gesture set and made the system far more intuitive than a purely technical design would have been.",
     futureImprovements: "Expand to more gesture classes, support multiplayer mode, and explore mobile camera input.",
   },
