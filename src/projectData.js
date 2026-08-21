@@ -54,7 +54,6 @@ export const profile = {
 
   // Contact
   email: "fareehahj@gmail.com",
-  phone: "+60 17 222 0643",
   location: "Kuching, Sarawak, Malaysia",
 
   // Social links — leave "" to hide the button entirely
