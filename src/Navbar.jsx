@@ -53,7 +53,7 @@ export default function Navbar() {
           {profile.resume && (
             <a href={profile.resume} target="_blank" rel="noreferrer"
                className="btn btn-primary btn-small nav-resume" onClick={close}>
-              Resume
+              Curriculum Vitae/Resume
             </a>
           )}
         </div>
