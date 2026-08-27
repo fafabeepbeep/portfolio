@@ -248,7 +248,7 @@ export default function Projects() {
       <div className="container">
         <div className="section-head reveal">
           <span className="eyebrow">Projects</span>
-          <h2 className="section-title">Things I've built</h2>
+          <h2 className="section-title">Things I've built, created and done</h2>
           <p className="section-sub">Click any card to see screenshots and the full story.</p>
         </div>
 

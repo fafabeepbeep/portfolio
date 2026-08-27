@@ -40,7 +40,7 @@ export const profile = {
   profileImage: "../profile2.JPG",
 
   // About section
-  bio: "I’m a Software Engineering fresh graduate from Universiti Malaysia Sarawak (UNIMAS) with Hons. passionate about building practical software solutions and exploring how technology can solve real-world problems. My experience spans full-stack development, AI and computer vision, IT governance, and AI data annotation. I enjoy learning new technologies, turning ideas into real-life working solutions, and continuously growing and adapting as a software engineer.",
+  bio: "I’m a Software Engineering fresh graduate from Universiti Malaysia Sarawak (UNIMAS) with Hons. and have completed my internship at Permodalan ASSAR Sdn Bhd. My experience spans full-stack website development, AI and computer vision, IT governance, and AI data annotation through past projects, internship and freelance. I would love to learn new technologies, turning ideas into real-life working solutions, and continuously growing and adapting as a software engineer.",
 
   university: "Universiti Malaysia Sarawak (UNIMAS)",
   degree: "Bachelor of Software Engineering with Honours",
@@ -50,7 +50,7 @@ export const profile = {
   interests: "When I'm in a peace state, I enjoy travelling to new places, hiking scenic trails, and going on spontaneous road trips, sometimes just relaxing winding down in the house doing my freelance work and a cup of matcha.",
 
   // UPDATED: professional career objective
-  objective: "To gain hands-on experience in software engineering, strengthen my technical expertise through real-world projects, and continuously grow as a capable and adaptable engineer.",
+  objective: "To gain hands-on experience in software engineering, strengthen my technical expertise through real-world projects in specific area, and continuously grow as a capable and adaptable engineer.",
 
   // Contact
   email: "fareehahj@gmail.com",
@@ -221,6 +221,25 @@ export const certificates = [
 // All screenshots are now viewed by clicking a project card and using the carousel.
 // -----------------------------------------------------------------------------
 export const projects = [
+  {
+    title: "K-Youth - Career Readiness Programme",
+    year: "2026",
+    description: "",
+    longDescription: "",
+    technologies: [""],
+    role: "",
+    highlights: [
+      "",
+    ],
+    features: [""],
+    images: [""],
+    demo: "", github: "", documentation: "",
+    architecture: "",
+    challenges: "",
+    solutions: "",
+    lessons: "",
+    futureImprovements: "",
+  },
   {
     title: "Hand Gesture Controller for Navigation Gameplay | Zenith Driven",
     year: "2026",
