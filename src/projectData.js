@@ -221,24 +221,254 @@ export const certificates = [
 // All screenshots are now viewed by clicking a project card and using the carousel.
 // -----------------------------------------------------------------------------
 export const projects = [
+  // ─────────────────────────────────────────────────────────────────────────
+  // KYOUTH CAREER READINESS PROGRAMME
+  // ─────────────────────────────────────────────────────────────────────────
+  // HOW TO ADD A DELIVERABLE:
+  //   Find the right portfolioCategories entry (written / visual / data).
+  //   Find the right scenario (1 / 2 / 3) inside that category's items[].
+  //   Add an object to that scenario's deliverables[] array:
+  //   { title: "My Document", description: "What it is", file: "/kyouth/written/filename.pdf", type: "PDF" }
+  //
+  // HOW TO ADD A FILE:
+  //   Put the file inside public/kyouth/written/, public/kyouth/visual/, or public/kyouth/data/
+  //   Then set file: "/kyouth/written/filename.pdf"  (leading slash, relative to /public)
+  //   Leave file: "" if the file isn't ready yet — the link button hides automatically.
+  //
+  // KYOUTH-SPECIFIC FIELDS (not used by other projects, ignored if absent):
+  //   isKyouth         → tells the modal to render the KYOUTH layout
+  //   scenarios        → the three programme scenarios with their summaries
+  //   portfolioCategories → the three portfolio types with deliverables per scenario
+  //   skillGroups      → grouped skill summary
+  // ─────────────────────────────────────────────────────────────────────────
   {
-    title: "K-Youth - Career Readiness Programme",
+    isKyouth: true,   // ← this flag switches the modal to KYOUTH layout
+    title: "KYOUTH Career Readiness Programme",
     year: "2026",
-    description: "",
-    longDescription: "",
-    technologies: [""],
-    role: "",
+    description: "A professional development programme where I developed business communication, data analysis, problem-solving, and presentation skills across three real-world scenarios.",
+    technologies: ["Microsoft Excel", "Microsoft PowerPoint", "Microsoft Word", "Generative AI", "Synthesia", "Gemini", "ResumeWorded", "Data Visualisation Tools"],
+    role: "Programme Participant",
+    images: ["../kyouth/kyouthLogo.png"],   // replace with "/kyouth/kyouth-cover.jpg" once you have a cover image
+
     highlights: [
-      "",
+      "Produced multiple professional business communication deliverables across three scenarios",
+      "Applied SCQ, Pyramid Method, and 5 Whys structured problem-solving frameworks",
+      "Analysed Grab revenue data and translated findings into business recommendations",
+      "Created a customer-focused financial product recommendation and brochure for Scenario 2",
+      "Used Generative AI (Synthesia) to produce a company video, improving digital productivity",
+      "Developed confidence in presenting and handling unexpected questions",
+      "Learned to adapt quickly when working requirements changed mid-scenario",
     ],
-    features: [""],
-    images: [""],
-    demo: "", github: "", documentation: "",
-    architecture: "",
-    challenges: "",
-    solutions: "",
-    lessons: "",
-    futureImprovements: "",
+
+    challenges: `Working with unfamiliar business topics and industry terminology while needing to produce professional-quality outputs quickly.
+
+Condensing large volumes of information (IHH articles, Grab revenue reports) into concise, actionable communication without losing important meaning.
+
+Understanding customer needs deeply enough to make a product recommendation that felt genuinely tailored, not generic.
+
+Analysing raw data and identifying the most meaningful insights rather than reporting every number.
+
+Presenting recommendations clearly and confidently, especially when faced with unexpected questions from trainers.
+
+Adapting quickly when working requirements or scenario conditions changed unexpectedly mid-task.`,
+
+    lessons: `Good communication is as important as technical ability — being able to explain an idea clearly is just as valuable as having the idea in the first place.
+
+Data is only useful when it can be converted into actionable insights. Raw numbers mean nothing without interpretation and context.
+
+Recommendations should always start with understanding the customer or problem before jumping to solutions.
+
+Structured frameworks (SCQ, Pyramid Method, 5 Whys) make complex or ambiguous problems much easier to navigate systematically.
+
+Unexpected questions require logical thinking, not memorised answers. The ability to reason under pressure is a skill that can be practised.
+
+Workplace requirements change — adaptability is not optional, it is a core professional skill.
+
+AI and digital tools genuinely improve productivity when used with intention and not just as shortcuts.`,
+
+    futureImprovements: `In my career, I will communicate technical ideas more clearly to non-technical stakeholders, translating complexity into language that drives decisions rather than confusion.
+
+I will use structured problem-solving frameworks when facing unfamiliar business problems, rather than defaulting to purely technical thinking.
+
+I will use data to support decisions rather than relying on assumptions, and I will present data with a clear narrative rather than just a collection of numbers.
+
+I will continue improving my presentation confidence and become more comfortable answering unexpected questions with logic rather than hesitation.
+
+I will adapt quickly when project requirements change, treating it as a normal part of professional work rather than a disruption.
+
+I will use AI and digital tools responsibly to improve productivity, while maintaining the critical thinking needed to verify and contextualise AI-generated outputs.
+
+For personal development, I will continue working outside my technical comfort zone, developing stronger business awareness and becoming a more well-rounded professional — not just a software engineer, but someone who can communicate, analyse, and persuade across different domains.`,
+
+    // ── THREE SCENARIOS ──────────────────────────────────────────────────
+    // Each scenario has a title, theme, summary, and key takeaway.
+    // The actual deliverables are organised under portfolioCategories below.
+    scenarios: [
+      {
+        id: 1,
+        title: "Scenario 1 — Communicating & Working Smarter",
+        theme: "From Information → Communication → Problem Solving",
+        takeaway: "Work smarter, communicate better, solve problems clearly.",
+        learned: [
+          { skill: "Extracting Information", detail: "Turned IHH articles into useful content for memos, emails, and a company primer." },
+          { skill: "Generative AI", detail: "Created a company video using Synthesia and learned how AI can make work more efficient." },
+          { skill: "7C Communication", detail: "Learned to write emails that are clear, concise, correct, complete, courteous, concrete, and coherent." },
+          { skill: "SCQ Problem Solving", detail: "Learned to identify the Situation, Complication, and Question before jumping to a solution." },
+          { skill: "Professional Email Writing", detail: "Learned how to structure and communicate professionally through business emails." },
+        ],
+      },
+      {
+        id: 2,
+        title: "Scenario 2 — Understanding the Customer",
+        theme: "From Customer Needs → Recommendation → Persuasion",
+        takeaway: "Don't just sell a product — understand the person first.",
+        learned: [
+          { skill: "Know Your Customer", detail: "Learned to understand a client's needs before recommending any product or solution." },
+          { skill: "Financial Planning", detail: "Compared mortgage products and justified why one suited Encik Norman's situation better." },
+          { skill: "Product Brochure", detail: "Transformed product information into a persuasive, customer-friendly brochure." },
+          { skill: "Client Meetings", detail: "Practised communicating confidently and navigating client meetings effectively." },
+          { skill: "Resume Writing", detail: "Learned how to present skills and experiences professionally for a target audience." },
+        ],
+      },
+      {
+        id: 3,
+        title: "Scenario 3 — Data, Presentation & Confidence",
+        theme: "From Data → Insights → Persuasion",
+        takeaway: "Data is only useful when you can explain and persuade others with it.",
+        learned: [
+          { skill: "Excel & Data Analysis", detail: "Analysed Grab's revenue data across two years to identify patterns and trends." },
+          { skill: "Structured Data Analytics", detail: "Learned to analyse data systematically using the Pyramid Method and turn it into meaningful insights." },
+          { skill: "Problem Solving", detail: "Applied the Pyramid Method and 5 Whys depending on the type of problem presented." },
+          { skill: "Data Storytelling", detail: "Learned to turn raw data into a clear narrative that supports a business recommendation." },
+          { skill: "Presentation & Persuasion", detail: "Communicated Grab revenue insights through structured presentation slides with a clear recommendation." },
+          { skill: "Answering Unexpected Questions", detail: "Practised logical reasoning when faced with unexpected trainer questions — for example, justifying why we focused on Grab Executive and Premium (higher revenue per transaction) rather than overall business performance." },
+          { skill: "Facing the Unknown", detail: "Built presentation confidence and became more comfortable with small talk and unfamiliar environments." },
+          { skill: "Adapting to Sudden Changes", detail: "Learned to make immediate adjustments when working requirements or conditions changed mid-task." },
+        ],
+      },
+    ],
+
+    // ── THREE PORTFOLIO CATEGORIES ─────────────────────────────────────
+    // Each category groups deliverables by type (written / visual / data).
+    // Inside each category, deliverables are organised by scenario.
+    // To add a file: add an object to the right scenario's deliverables[].
+    portfolioCategories: [
+      {
+        id: "written",
+        label: "Written Portfolio",
+        icon: "✍️",
+        description: "A collection of written work developed throughout the programme, focusing on professional communication, information extraction, structured thinking, and business writing.",
+        scenarios: [
+          {
+            scenarioId: 1,
+            deliverables: [
+              // HOW TO ADD: { title: "Memo — IHH Overview", description: "Internal memo summarising IHH Healthcare's business.", file: "/kyouth/written/s1-memo.pdf", type: "PDF" }
+              { title: "Scenario 1 Memo Deliverable", description: "Memo summarising IHH Healthcare's business.", file: "../kyouth/written/s1memo.pdf", type: "Document" },
+              { title: "Scenario 1 Email Deliverable", description: "Email IHH Healthcare's business to marketing dept.", file: "../kyouth/written/s1email.pdf", type: "Document" },
+              { title: "Scenario 1 Primer Deliverable", description: "Primer summarising IHH Healthcare's business for marketing.", file: "../kyouth/written/s1primer.pdf", type: "Document" },
+            ],
+          },
+          {
+            scenarioId: 3,
+            deliverables: [
+              { title: "Scenario 3 Written Deliverable", description: "Prelimanary Data Analysis Approach for Grab's Revenue", file: "../kyouth/written/s3prelimdataAnalysis.pdf", type: "Document" },
+            ],
+          },
+          {
+            scenarioId: 4,
+            deliverables: [
+              { title: "Capstone Written Deliverable", description: "Capstone Report based on FYP Project Hand Gesture Controller for Navigation Gameplay", file: "../kyouth/written/capstoneReport.pdf", type: "Document" },
+            ],
+          },
+        ],
+      },
+      {
+        id: "visual",
+        label: "Visual Portfolio",
+        icon: "🎨",
+        description: "A collection of visual work created to communicate ideas, insights, recommendations, and information clearly and effectively.",
+        scenarios: [
+          {
+            scenarioId: 1,
+            deliverables: [
+              // HOW TO ADD: { title: "Company Video — IHH Healthcare", description: "AI-generated company video created using Gemini.", file: "/kyouth/visual/s1-company-video.mp4", type: "Video" }
+              { title: "Scenario 1 Video Deliverable", description: "AI-generated company video created using Gemini.", file: "", type: "Video" },
+            ],
+          },
+          {
+            scenarioId: 2,
+            deliverables: [
+              { title: "Scenario 2 Brochure Deliverable", description: "Mortgage Financial brochure to convince Encik Norman.", file: "../kyouth/visual/s2brochure.pdf", type: "Brochure" },
+            ],
+          },
+          {
+            scenarioId: 3,
+            deliverables: [
+              { title: "Scenario 3 Slides Deliverable", description: "Presentation for overall performance report.", file: "../kyouth/visual/s3presentation.pdf", type: "Slides" },
+              { title: "Scenario 3 Slides Deliverable", description: "Surprise Presentation for performance by services report.", file: "../kyouth/visual/s3presentation2.pdf", type: "Slides" },
+            ],
+          },
+          {
+            scenarioId: 4,
+            deliverables: [
+              { title: "Capstone Slides Deliverable", description: "Presentation for FYP Project Hand Gesture Controller for Navigation Gameplay", file: "../kyouth/visual/capstonePresentation.pdf", type: "Slides" },
+            ],
+          },
+        ],
+      },
+      {
+        id: "data",
+        label: "Data Portfolio",
+        icon: "📊",
+        description: "A collection of analytical work demonstrating how I used data, Excel, structured problem-solving, and analytical thinking to generate insights and support recommendations.",
+        scenarios: [
+          
+          {
+            scenarioId: 3,
+            deliverables: [
+              // HOW TO ADD: { title: "Grab Revenue Analysis", description: "Two-year revenue analysis with insights and recommendations.", file: "/kyouth/data/s3-grab-analysis.xlsx", type: "Excel" }
+              { title: "Scenario 3 Data Deliverable", description: "Grab's two-year revenue overall analysis.", file: "../kyouth/data/s3grabAnalysis.xlsx", type: "Excel" },
+            ],
+          },
+        ],
+      },
+    ],
+
+    // ── SKILL GROUPS ──────────────────────────────────────────────────────
+    // Grouped skill summary for the modal's Skills section.
+    skillGroups: [
+      {
+        group: "Communication",
+        skills: ["Professional email writing", "7C communication", "Business writing", "Presentation", "Persuasion", "Client communication"],
+      },
+      {
+        group: "Problem Solving",
+        skills: ["SCQ framework", "Pyramid Method", "5 Whys", "Structured thinking", "Breaking down ambiguous problems"],
+      },
+      {
+        group: "Data & Analysis",
+        skills: ["Excel", "Data analysis", "Data visualisation", "Finding insights", "Data storytelling", "Revenue analysis"],
+      },
+      {
+        group: "Business & Customer Understanding",
+        skills: ["Understanding customer needs", "Product comparison", "Financial planning", "Recommendation", "Customer-focused thinking"],
+      },
+      {
+        group: "Digital & AI",
+        skills: ["Generative AI", "AI-assisted content creation", "Synthesia", "Gemini", "Digital productivity tools"],
+      },
+      {
+        group: "Adaptability & Confidence",
+        skills: ["Handling unexpected questions", "Presentation confidence", "Small talk", "Adapting to sudden changes", "Working under changing requirements"],
+      },
+    ],
+
+    // Standard fields (used by the base modal for consistency)
+    demo: "",
+    github: "",
+    documentation: "",
+    gallery: [],
+    solutions: "Applied structured frameworks (SCQ, Pyramid Method, 5 Whys) to break down complex problems. Practised condensing information through multiple drafts, prioritising clarity over completeness. Used customer profiling before making recommendations to ensure they were genuinely tailored. Built presentation confidence through repeated practice and constructive feedback from trainers.",
   },
   {
     title: "Hand Gesture Controller for Navigation Gameplay | Zenith Driven",
@@ -275,13 +505,13 @@ The project followed Rapid Application Development (RAD) methodology across four
       "../project1/shot5.png",
     ],
     demo: "https://zenith-driven-racing-game.onrender.com",
-    github: "",
+    github: " http://localhost:5173/",
     documentation: "../project1/82822_Thesis.pdf",
     architecture: "Python script captures webcam frames → OpenCV processes → MediaPipe detects hand landmarks → custom Model Maker classifier maps gesture → WebSocket sends command to Node.js server → Phaser.js game receives and reacts. MySQL on Aiven stores user accounts and leaderboard scores.",
     challenges: "Achieving reliable gesture recognition under varying lighting conditions while maintaining low enough latency for real-time gameplay.",
     solutions: "Trained a custom MediaPipe Model Maker classifier with Tensorflow lite on Google Colab with 1,400+ images across 7 gesture classes, optimised the processing pipeline, and used WebSockets for minimum-latency command relay.",
     lessons: "The importance of a user study before implementation — gathering real data from 31 participants shaped the gesture set and made the system far more intuitive than a purely technical design would have been.",
-    futureImprovements: "Expand to more gesture classes, support multiplayer mode, and explore mobile camera input.",
+    futureImprovements: "Future deployment on Gesture recognition system, expand to more gesture dataset and classes, support multiplayer mode, and explore mobile camera input.",
   },
 
   {
@@ -494,4 +724,5 @@ The companion website, built with PHP, CSS, JavaScript, and SQL, supports online
     lessons: "Accessibility is not a feature — it's a foundation. Building it in from the start is far easier than retrofitting.",
     futureImprovements: "Conduct formal usability testing and hand off to a development team for implementation.",
   },
+  
 ];
