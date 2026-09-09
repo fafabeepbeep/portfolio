@@ -642,6 +642,203 @@ ul { list-style: none; }
 }
 
 /* ======================================================================
+   KYOUTH MODAL STYLES
+   These styles are only used by the KyouthModal component in Projects.jsx.
+   They do not affect any other project modal or section.
+   All colours reuse the existing CSS variables from :root.
+   ====================================================================== */
+
+/* Wider modal for KYOUTH — it has more content than regular project modals */
+.kyouth-modal {
+  max-width: 860px;
+}
+
+/* Cover placeholder when no image is set */
+.kyouth-cover {
+  font-size: 1.1rem;
+  font-weight: 600;
+  font-family: var(--font-display);
+}
+
+/* ── Scenario cards ─────────────────────────────────────────────── */
+.kyouth-scenarios {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 10px;
+}
+.kyouth-scenario-card {
+  background: var(--rose-soft);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 16px;
+}
+.kyouth-scenario-num {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--rose);
+  margin-bottom: 4px;
+}
+.kyouth-scenario-title {
+  font-size: 0.98rem;
+  font-weight: 700;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.kyouth-scenario-theme {
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-bottom: 10px;
+  font-style: italic;
+}
+.kyouth-learned-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  margin-bottom: 12px;
+}
+.kyouth-learned-list li {
+  font-size: 0.83rem;
+  color: var(--ink);
+  padding-left: 14px;
+  position: relative;
+}
+.kyouth-learned-list li::before {
+  content: "▹";
+  position: absolute;
+  left: 0;
+  color: var(--rose);
+  font-size: 0.75rem;
+}
+.kyouth-takeaway {
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--rose-deep);
+  font-style: italic;
+  border-left: 3px solid var(--rose);
+  padding-left: 10px;
+}
+
+/* ── Portfolio tabs ─────────────────────────────────────────────── */
+.kyouth-tabs {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  margin-bottom: 14px;
+}
+.kyouth-tab {
+  padding: 8px 18px;
+  border-radius: 999px;
+  font-size: 0.87rem;
+  font-weight: 600;
+  font-family: var(--font-body);
+  cursor: pointer;
+  border: 1.5px solid var(--line);
+  background: var(--white);
+  color: var(--ink-soft);
+  transition: all 0.2s ease;
+}
+.kyouth-tab:hover {
+  border-color: var(--rose);
+  color: var(--rose-deep);
+}
+.kyouth-tab.active {
+  background: var(--rose);
+  color: #fff;
+  border-color: var(--rose);
+}
+
+/* Category description text */
+.kyouth-cat-desc {
+  font-size: 0.91rem;
+  color: var(--ink-soft);
+  margin-bottom: 16px;
+  font-style: italic;
+}
+
+/* Scenario group inside a tab */
+.kyouth-scn-group {
+  margin-bottom: 18px;
+}
+.kyouth-scn-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.09em;
+  color: var(--rose-deep);
+  margin-bottom: 8px;
+  padding-bottom: 4px;
+  border-bottom: 1px solid var(--line);
+}
+
+/* Deliverable cards inside a scenario group */
+.kyouth-deliverables {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 10px;
+}
+.kyouth-deliverable {
+  background: var(--white);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  padding: 14px;
+}
+.kyouth-del-type {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--rose);
+  margin-bottom: 4px;
+}
+.kyouth-del-title {
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink);
+  margin-bottom: 4px;
+}
+.kyouth-del-desc {
+  font-size: 0.82rem;
+  color: var(--ink-soft);
+}
+.kyouth-del-soon {
+  display: inline-block;
+  margin-top: 8px;
+  font-size: 0.75rem;
+  color: var(--ink-soft);
+  font-style: italic;
+}
+
+/* ── Skill groups ───────────────────────────────────────────────── */
+.kyouth-skill-groups {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+.kyouth-skill-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.kyouth-skill-group-label {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--ink);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+/* ── Responsive adjustments for KYOUTH modal ────────────────────── */
+@media (max-width: 600px) {
+  .kyouth-scenarios { grid-template-columns: 1fr; }
+  .kyouth-deliverables { grid-template-columns: 1fr; }
+  .kyouth-tabs { gap: 6px; }
+  .kyouth-tab { padding: 7px 14px; font-size: 0.82rem; }
+}
+/* ======================================================================
    GLASSMORPHISM CARDS
    Applied with class="glass-card" on any element.
    HOW IT WORKS:

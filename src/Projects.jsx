@@ -147,6 +147,9 @@ function ProjectCard({ project, onClick }) {
 // PROJECT MODAL — full detail popup with carousel
 // =============================================================================
 function Modal({ project: p, onClose }) {
+    // If the project has isKyouth: true, render the dedicated KYOUTH modal instead
+    if (p.isKyouth) return <KyouthModal project={p} onClose={onClose} />;
+
   const Block = ({ title, text }) =>
     text ? (
       <div className="modal-section">
@@ -225,6 +228,151 @@ function Modal({ project: p, onClose }) {
   );
 }
 
+function KyouthModal({ project: p, onClose }) {
+  // Active portfolio tab: "written" | "visual" | "data"
+  const [activeTab, setActiveTab] = useState("written");
+
+  const Block = ({ title, text }) =>
+    text ? <div className="modal-section"><h4>{title}</h4><p style={{whiteSpace:"pre-line"}}>{text}</p></div> : null;
+
+  // Find the active portfolio category object
+  const activeCategory = p.portfolioCategories?.find((c) => c.id === activeTab);
+
+  // Scenario label helper
+  const scenarioLabel = (id) => {
+    const s = p.scenarios?.find((s) => s.id === id);
+    return s ? `Scenario ${s.id} — ${s.title.split("—")[1]?.trim()}` : `Scenario ${id}`;
+  };
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal kyouth-modal" onClick={(e) => e.stopPropagation()}>
+        <button className="modal-close" onClick={onClose} aria-label="Close">×</button>
+
+        {/* Cover image */}
+        {p.images?.[0]
+          ? <img src={p.images[0]} alt={p.title} className="modal-img" />
+          : <div className="modal-img kyouth-cover">KYOUTH Career Readiness Programme</div>
+        }
+
+        <div className="modal-body">
+          <h2>{p.title}</h2>
+          <div className="modal-meta">{p.year} · {p.role}</div>
+          <p style={{marginBottom:"24px", color:"var(--ink-soft)", fontSize:"0.97rem"}}>{p.description}</p>
+
+          {/* ── SCENARIOS ──────────────────────────────────────── */}
+          {p.scenarios?.length > 0 && (
+            <div className="modal-section">
+              <h4>Three Scenarios</h4>
+              <div className="kyouth-scenarios">
+                {p.scenarios.map((s) => (
+                  <div className="kyouth-scenario-card" key={s.id}>
+                    <div className="kyouth-scenario-num">Scenario {s.id}</div>
+                    <div className="kyouth-scenario-title">{s.title.split("—")[1]?.trim()}</div>
+                    <div className="kyouth-scenario-theme">{s.theme}</div>
+                    <ul className="kyouth-learned-list">
+                      {s.learned.map((item, i) => (
+                        <li key={i}>
+                          <strong>{item.skill}:</strong> {item.detail}
+                        </li>
+                      ))}
+                    </ul>
+                    <div className="kyouth-takeaway">"{s.takeaway}"</div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* ── PORTFOLIO CATEGORIES (tabbed) ─────────────────── */}
+          {p.portfolioCategories?.length > 0 && (
+            <div className="modal-section">
+              <h4>Portfolio</h4>
+
+              {/* Tab buttons */}
+              <div className="kyouth-tabs">
+                {p.portfolioCategories.map((cat) => (
+                  <button
+                    key={cat.id}
+                    className={`kyouth-tab ${activeTab === cat.id ? "active" : ""}`}
+                    onClick={() => setActiveTab(cat.id)}
+                  >
+                    {cat.icon} {cat.label}
+                  </button>
+                ))}
+              </div>
+
+              {/* Tab description */}
+              {activeCategory && (
+                <>
+                  <p className="kyouth-cat-desc">{activeCategory.description}</p>
+
+                  {/* Deliverables grouped by scenario */}
+                  {activeCategory.scenarios.map((scn) => (
+                    <div key={scn.scenarioId} className="kyouth-scn-group">
+                      <div className="kyouth-scn-label">{scenarioLabel(scn.scenarioId)}</div>
+                      <div className="kyouth-deliverables">
+                        {scn.deliverables.map((d, i) => (
+                          <div className="kyouth-deliverable" key={i}>
+                            <div className="kyouth-del-type">{d.type}</div>
+                            <div className="kyouth-del-title">{d.title}</div>
+                            <div className="kyouth-del-desc">{d.description}</div>
+                            {d.file
+                              ? <a href={d.file} target="_blank" rel="noreferrer" className="btn btn-ghost btn-small" style={{marginTop:"8px"}}>Open ↗</a>
+                              : <span className="kyouth-del-soon">File coming soon</span>
+                            }
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </>
+              )}
+            </div>
+          )}
+
+          {/* ── SKILLS ────────────────────────────────────────── */}
+          {p.skillGroups?.length > 0 && (
+            <div className="modal-section">
+              <h4>Skills Developed</h4>
+              <div className="kyouth-skill-groups">
+                {p.skillGroups.map((g) => (
+                  <div className="kyouth-skill-group" key={g.group}>
+                    <div className="kyouth-skill-group-label">{g.group}</div>
+                    <div className="project-tags">
+                      {g.skills.map((s) => <span className="project-tag" key={s}>{s}</span>)}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* ── TOOLS USED ────────────────────────────────────── */}
+          {p.technologies?.length > 0 && (
+            <div className="modal-section">
+              <h4>Tools Used</h4>
+              <div className="project-tags">
+                {p.technologies.map((t) => <span className="project-tag" key={t}>{t}</span>)}
+              </div>
+            </div>
+          )}
+
+          {/* ── STANDARD SECTIONS ─────────────────────────────── */}
+          {p.highlights?.length > 0 && (
+            <div className="modal-section"><h4>Highlights</h4>
+              <ul className="modal-list">{p.highlights.map((h,i) => <li key={i}>{h}</li>)}</ul>
+            </div>
+          )}
+          <Block title="Challenges"          text={p.challenges} />
+          <Block title="Solutions"           text={p.solutions} />
+          <Block title="Lessons Learned"     text={p.lessons} />
+          <Block title="Future Improvements" text={p.futureImprovements} />
+        </div>
+      </div>
+    </div>
+  );
+}
 // =============================================================================
 // MAIN EXPORT — the Projects section
 // =============================================================================
@@ -272,3 +420,4 @@ export default function Projects() {
     </section>
   );
 }
+
